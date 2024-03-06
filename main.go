@@ -75,5 +75,39 @@ func main() {
 	}
 
 	// if else
+	x := 10
+	y := 20
+	if x > 0 {
+		if y > 0 {
+			fmt.Println("x and y are positive")
+		} else {
+			fmt.Println("x is positive but y is non-positive")
+		}
+	} else {
+		fmt.Println("x is non-positive")
+	}
 
+	score := 75
+	if score >= 90 {
+		fmt.Println("A")
+	} else if score >= 80 {
+		fmt.Println("B")
+	} else if score >= 70 {
+		fmt.Println("C")
+	} else if score >= 60 {
+		fmt.Println("D")
+	} else if score >= 50 {
+		fmt.Println("F")
+	}
+
+	// Switch
+	num := 10
+	switch num {
+	case 10, 20:
+		fmt.Println("Number is either 10 or 20")
+	case 30, 40:
+		fmt.Println("Number is either 30 or 40")
+	default:
+		fmt.Println("Number is not in the given list")
+	}
 }
