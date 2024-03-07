@@ -2,6 +2,41 @@ package main
 
 import "fmt"
 
+// Define a struct type representing a person
+type Person struct {
+	Name    string
+	Age     int
+	Address Address
+}
+
+type Address struct {
+	Street     string
+	City       string
+	PostalCode string
+}
+
+// Function to calculate the sum of two integers
+func add(a, b int) int {
+	return a + b
+}
+
+// Function to calculate the difference of two integers
+func subtract(a, b int) int {
+	return a - b
+}
+
+func multiply(a, b int) int {
+	return a * b
+}
+
+func divide(a, b int) (float64, error) {
+	if b == 0 {
+		return 0, fmt.Errorf("division by zero")
+	}
+
+	return float64(a) / float64(b), nil
+}
+
 func main() {
 
 	// Variables and Constants
@@ -110,4 +145,78 @@ func main() {
 	default:
 		fmt.Println("Number is not in the given list")
 	}
+
+	// functions
+	num1 := 10
+	num2 := 5
+
+	sum := add(num1, num2)
+	fmt.Println(sum)
+
+	difference := subtract(num1, num2)
+	fmt.Println(difference)
+
+	product := multiply(num1, num2)
+	fmt.Println(product)
+
+	quotient, err := divide(num1, num2)
+
+	if err != nil {
+		fmt.Println("error", err)
+	} else {
+		fmt.Println(quotient)
+	}
+
+	// Maps
+
+	// initializing a map with key-value pairs
+	departmentHeadcount := map[string]int{
+		"Engineering": 10,
+		"Marketing":   8,
+		"Sales":       12,
+	}
+
+	fmt.Println("Engineering: ", departmentHeadcount["Engineering"])
+	fmt.Println("Marketing: ", departmentHeadcount["Marketing"])
+	fmt.Println("Sales: ", departmentHeadcount["Sales"])
+
+	// Checking if a key exists in the map
+	_, ok := departmentHeadcount["HR"]
+	if ok {
+		fmt.Println("\nHR Department Exists")
+	} else {
+		fmt.Println("\nHR Department Does Not Exists")
+	}
+
+	// Deleting a key-value pair from the map
+	delete(departmentHeadcount, "Marketing")
+	fmt.Println("\n Department Headcount after deletion: ")
+	fmt.Println(departmentHeadcount)
+
+	// Structs
+	person1 := Person{
+		Name: "Wawex",
+		Age:  22,
+		Address: Address{
+			Street:     "street 123",
+			City:       "İstanbul",
+			PostalCode: "3434",
+		},
+	}
+
+	fmt.Println("Name: ", person1.Name)
+	fmt.Println("Age: ", person1.Age)
+	fmt.Println("Address: ", person1.Address.Street)
+	fmt.Println("City: ", person1.Address.City)
+	fmt.Println("Postal Code: ", person1.Address.PostalCode)
+
+	// update fields of the person
+	person1.Name = "Mertcan Yoldas"
+	person1.Age = 35
+	person1.Address.City = "İzmir"
+
+	// print updated fields
+	fmt.Println("\nUpdated Name: ", person1.Name)
+	fmt.Println("\nUpdated Age: ", person1.Age)
+	fmt.Println("\nUpdated City: ", person1.Address.City)
 }
